@@ -5,8 +5,19 @@ body{
     text-align: center;
     font-family: 'Helvetica';
     text-shadow: 2px 2px #8470ff;
+    text-decoration-line: overline;
+    text-decoration-style: wavy;  
     background-color: #ffffff; 
     border: 5px solid #4682b4;
+}
+
+#title{
+    animation: awesome 6s 2s linear infinite;
+}
+
+@keyframes awesome{
+    0%    { transform: rotateY(0deg);  }
+    100%  { transform: rotateY(360deg);}
 }
 
 #form1{
