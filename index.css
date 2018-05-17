@@ -44,3 +44,7 @@ img.resize{
     max-height:45%;
 }
 
+button{
+    border-radius: 50%;
+}
+
