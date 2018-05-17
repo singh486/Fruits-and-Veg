@@ -42,9 +42,10 @@ fruitList.addEventListener("click", remove, false)
 vegList.addEventListener("click", remove, false)
 
 function remove(e) {
-    if (e.target !== e.currentTarget) {
-        var clickedItem = e.target.id;
-        var text = e.target.parentNode.textContent
+    var clickedItem = e.target.id;
+    var text = e.target.parentNode.textContent
+    //console.log(e.target.tagName)
+    if(e.target.tagName == 'BUTTON'){
         for (var i = 0, len = allElements.length; i < len; i++) {
             try{
                 if(text == allElements[i].name+"Delete"){
@@ -54,7 +55,6 @@ function remove(e) {
         }
         e.target.parentNode.remove()
     }
-    e.stopPropagation();
 }
 
 
