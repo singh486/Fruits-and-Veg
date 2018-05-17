@@ -24,6 +24,10 @@ function renderList(data){
                 }catch{}
             }
         })
+
+        deleteButton.addEventListener('mousedown', function(){
+            deleteButton.style.backgroundColor = 'cyan'
+        })
         
         if(data[i].classify == "fruit"){
             const newFruit = document.createElement('li')
@@ -84,6 +88,20 @@ function handleSubmit(ev){
    const select = document.getElementById('classify')
    select.value = element.classify
 }
+
+const submit = document.getElementById('submit')
+submit.style.backgroundColor = '#d8bfd8'
+submit.style.padding = "10 px"
+function mousedown(){
+    submit.style.backgroundColor = 'cyan'
+}
+
+function mouseup(){
+    submit.style.backgroundColor = '#d8bfd8'
+}
+submit.addEventListener('mousedown', mousedown)
+submit.addEventListener('mouseup', mouseup)
+
 const form = document.getElementById('form1')
 form.addEventListener('submit', handleSubmit)
 
