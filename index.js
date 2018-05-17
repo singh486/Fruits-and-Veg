@@ -3,16 +3,27 @@
 var allElements = new Array()
 const fruitList = document.createElement('ul')
 const vegList = document.createElement('ul')
-var deleteButton
 
 function renderList(data){
     fruitList.innerHTML = ''
     vegList.innerHTML = ''
     
     for (var i = 0, len = data.length; i < len; i++) {
-        deleteButton = document.createElement('button')
+        const deleteButton = document.createElement('button')
         deleteButton.innerHTML = "Delete"
         //deleteButton.setAttribute(data[i].name, data[i].classify)
+        deleteButton.addEventListener('click', function(){
+            deleteButton.parentNode.remove()
+            var text = deleteButton.parentNode.textContent
+            console.log(text)
+            for (var i = 0, len = allElements.length; i < len; i++) {
+                try{
+                    if(text == allElements[i].name+"Delete"){
+                        allElements.splice(i,1)
+                    }
+                }catch{}
+            }
+        })
         
         if(data[i].classify == "fruit"){
             const newFruit = document.createElement('li')
@@ -25,42 +36,28 @@ function renderList(data){
             newVeg.appendChild(deleteButton)
             vegList.appendChild(newVeg)
         }
-    }
-    // deleteButton.onclick = function(){
-    //     var text = deleteButton.parentNode.textContent
-    //     console.log(text)
-    //     for (var i = 0, len = allElements.length; i < len; i++) {
-    //         if(text == allElements[i].name+"Delete"){
-    //             allElements.splice(i)
-    //         }
-    //     }
-    //     deleteButton.parentNode.remove()
-    // }
-    
-}
-fruitList.addEventListener("click", remove, false)
-vegList.addEventListener("click", remove, false)
-
-function remove(e) {
-    var clickedItem = e.target.id;
-    var text = e.target.parentNode.textContent
-    //console.log(e.target.tagName)
-    if(e.target.tagName == 'BUTTON'){
-        for (var i = 0, len = allElements.length; i < len; i++) {
-            try{
-                if(text == allElements[i].name+"Delete"){
-                    allElements.splice(i)
-                }
-            }catch{}
-        }
-        e.target.parentNode.remove()
-    }
+    }   
 }
 
+// fruitList.addEventListener("click", remove, false)
+// vegList.addEventListener("click", remove, false)
 
-function deleteBut(deleteButton){
-    console.log(deleteButton.textContent)
-}
+// function remove(e) {
+//     var clickedItem = e.target.id;
+//     var text = e.target.parentNode.textContent
+//     //console.log(e.target.tagName)
+//     if(e.target.tagName == 'BUTTON'){
+//         for (var i = 0, len = allElements.length; i < len; i++) {
+//             try{
+//                 if(text == allElements[i].name+"Delete"){
+//                     allElements.splice(i)
+//                 }
+//             }catch{}
+//         }
+//         e.target.parentNode.remove()
+//     }
+// }
+
 
 function handleSubmit(ev){
     ev.preventDefault()
