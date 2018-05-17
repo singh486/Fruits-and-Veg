@@ -1,0 +1,35 @@
+body{
+    background-color: #b0c4de;
+}
+#h1{
+    text-align: center;
+    font-family: 'Helvetica';
+    text-shadow: 2px 2px #8470ff;
+    background-color: #ffffff; 
+    border: 5px solid #4682b4;
+}
+
+#form1{
+    border: 5px solid #4682b4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#row{
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#fruitDisplay{
+    flex: 50%;
+    border: 5px solid #4682b4;
+}
+
+#vegDisplay{
+    flex: 50%;
+    border: 5px solid #4682b4;
+}
+
+img.resize{
+    max-width:25%;
+    max-height:45%;
+}
+
